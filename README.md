@@ -5,14 +5,14 @@ CI/CD pipeline using GitHub Actions
 Dockerized Node.js app  
 Infrastructure provisioned with Terraform  
 ## Pipeline Flow
-Developer pushes code  
-GitHub Actions triggers  
-Install dependencies 
-Run tests  
-Build Docker image  
-Push to DockerHub  
-Terraform provisions AWS  
-App deployed to EC2
+-Developer pushes code  
+-GitHub Actions triggers  
+-Install dependencies   
+-Run tests  
+-Build Docker image  
+-Push to DockerHub  
+-Terraform provisions AWS  
+-App deployed to EC2
 ## Tools Used
 GitHub Actions  
 Docker  
