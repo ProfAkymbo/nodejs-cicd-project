@@ -1,23 +1,23 @@
-# nodejs-cicd
+# Nodejs-cicd
 This project is a fully automated CI/CD pipeline for a Node.js app using GitHub Actions, Docker and Terraform. It is deployed to AWS servers using github Actions.
 ## Overview
-CI/CD pipeline using GitHub Actions
-Dockerized Node.js app
-Infrastructure provisioned with Terraform
+CI/CD pipeline using GitHub Actions  
+Dockerized Node.js app  
+Infrastructure provisioned with Terraform  
 ## Pipeline Flow
-Developer pushes code
-GitHub Actions triggers
-Install dependencies
-Run tests
-Build Docker image
-Push to DockerHub
-Terraform provisions AWS
+Developer pushes code  
+GitHub Actions triggers  
+Install dependencies 
+Run tests  
+Build Docker image  
+Push to DockerHub  
+Terraform provisions AWS  
 App deployed to EC2
 ## Tools Used
-GitHub Actions
-Docker
-Terraform
-AWS EC2
+GitHub Actions  
+Docker  
+Terraform  
+AWS EC2  
 ## Step 1 : Built-in MQTT Test Client
 This is what you’re using for your project to simulate the IOT device.  
 It works because:  
