@@ -83,6 +83,7 @@ jobs:
         script: |
           sudo yum install -y docker || true
           sudo systemctl start docker || true
+          sudo usermod -a -G docker ec2-user
 
           docker pull ${{ secrets.DOCKER_USERNAME }}/node-cicd-app:latest
           docker stop app || true
