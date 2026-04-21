@@ -66,16 +66,23 @@ jobs:
       env:
         TF_VAR_key_name: ${{ secrets.TF_VAR_KEY_NAME }}
 
+    - name: Get EC2 IP
+      id: terraform
+      run: |
+        echo "EC2_IP=$(terraform output -raw public_ip)" >> $GITHUB_OUTPUT
+      env:
+        TF_VAR_key_name: ${{ secrets.TF_VAR_KEY_NAME }}
+
     - name: Deploy to EC2 via SSH
       uses: appleboy/ssh-action@v1
       with:
-        host: ${{ env.EC2_IP }}
+        host: ${{ steps.terraform.outputs.EC2_IP }}
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           sudo yum install -y docker || true
           sudo systemctl start docker || true
-        
+
           docker pull ${{ secrets.DOCKER_USERNAME }}/node-cicd-app:latest
           docker stop app || true
           docker rm app || true
