@@ -112,6 +112,7 @@ Add the following secrets to your repository:
 - `AWS_REGION`
 - `DOCKER_USERNAME`
 - `DOCKER_PASSWORD`
+- `TF_VAR_KEY_NAME`
 - `EC2_PUBLIC_IP`
 - `EC2_SSH_KEY`
 
