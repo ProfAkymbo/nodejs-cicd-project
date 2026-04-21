@@ -65,7 +65,7 @@ docker build -t node-cicd-app .
 Run the container:
 
 ```bash
-docker run -p 3000:3000 node-cicd-app
+docker run -d -p 3000:3000 node-cicd-app
 ```
 
 ## Terraform
@@ -75,6 +75,7 @@ Setup AWS credentials and run from `terraform/`:
 ```bash
 cd terraform
 terraform init
+terraform plan   
 terraform apply -auto-approve
 ```
 
@@ -86,8 +87,6 @@ The Terraform configuration supports:
 - `instance_type`
 - `aws_ami`
 - `ssh_key_name`
-
-You can pass these by environment variables (for example `TF_VAR_aws_region=us-east-1`) or a `terraform.tfvars` file.
 
 ## GitHub Actions CI/CD
 
