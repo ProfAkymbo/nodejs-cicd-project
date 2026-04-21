@@ -74,6 +74,19 @@ jobs:
       env:
         TF_VAR_key_name: ${{ secrets.TF_VAR_KEY_NAME }}
 
+    - name: Wait for EC2 to be ready
+      run: |
+        for i in {1..60}; do
+          if nc -z ${{ steps.terraform.outputs.EC2_IP }} 22; then
+            echo "EC2 SSH port is open"
+            exit 0
+          fi
+          echo "Waiting for EC2 SSH... (attempt $i/60)"
+          sleep 5
+        done
+        echo "EC2 failed to become ready"
+        exit 1
+
     - name: Deploy to EC2 via SSH
       uses: appleboy/ssh-action@v1
       with:
