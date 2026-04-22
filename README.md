@@ -1,9 +1,9 @@
 # Nodejs-cicd
-This project is a fully automated CI/CD pipeline for a Node.js app using GitHub Actions, Docker and Terraform. It is deployed to AWS servers using github Actions.
+This project is a fully automated CI/CD pipeline for a Node.js app using GitHub Actions, Docker and Terraform. It is deployed to AWS ec2-server using github Actions.
 ## Overview
-CI/CD pipeline using GitHub Actions  
-Dockerized Node.js app  
-Infrastructure provisioned with Terraform  
+CI/CD pipeline using GitHub Actions,  
+Dockerized Node.js app,  
+Infrastructure provisioned with Terraform.  
 ## Pipeline Flow
 -Developer pushes code  
 -GitHub Actions triggers  
@@ -46,13 +46,19 @@ cd app
 npm install
 ```
 
-2. Start the app:
+2. Test the app:
+
+```bash
+npm test
+```
+
+3. Start the app:
 
 ```bash
 npm start
 ```
 
-3. Open `http://localhost:3000`
+4. Open `http://localhost:3000`
 
 ## Docker
 
@@ -68,7 +74,7 @@ Run the container:
 docker run -d -p 3000:3000 node-cicd-app
 ```
 
-## Terraform
+## Let's provision infra with Terraform
 
 Setup AWS credentials and run from `terraform/`:
 
@@ -88,7 +94,7 @@ The Terraform configuration supports:
 - `aws_ami`
 - `ssh_key_name`
 
-## GitHub Actions CI/CD
+## Finally let's replicate everything with fully automated GitHub Actions CI/CD
 
 The workflow is defined in `.github/workflows/ci-cd.yml`.
 
