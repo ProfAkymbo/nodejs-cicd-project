@@ -1,9 +1,11 @@
 # Nodejs-cicd
 This project is a fully automated CI/CD pipeline for a Node.js app using GitHub Actions, Docker and Terraform. It is deployed to AWS ec2-server using github Actions.
+
 ## Overview
-CI/CD pipeline using GitHub Actions,  
-Dockerized Node.js app,  
-Infrastructure provisioned with Terraform.  
+Node.js app is Dockerized,  
+Infrastructure is provisioned with Terraform,  
+CI/CD pipeline using GitHub Actions  
+
 ## Pipeline Flow
 -Developer pushes code  
 -GitHub Actions triggers  
@@ -11,13 +13,9 @@ Infrastructure provisioned with Terraform.
 -Run tests  
 -Build Docker image  
 -Push to DockerHub  
--Terraform provisions AWS  
--App deployed to EC2
-## Tools Used
-GitHub Actions  
-Docker  
-Terraform  
-AWS EC2  
+-Terraform provisions AWS infra    
+-App deployed to EC2 server  
+ 
 ## Project Structure
 
 ```
@@ -81,6 +79,7 @@ Setup AWS credentials and run from `terraform/`:
 ```bash
 cd terraform
 terraform init
+terraform validate  
 terraform plan   
 terraform apply -auto-approve
 ```
@@ -113,13 +112,15 @@ It performs:
 Add the following secrets to your repository:
 
 - `AWS_ACCESS_KEY_ID`
-- `AWS_SECRET_ACCESS_KEY`
-- `AWS_REGION`
+- `AWS_SECRET_ACCESS_KEY`  
 - `DOCKER_USERNAME`
 - `DOCKER_PASSWORD`
-- `TF_VAR_KEY_NAME`
-- `EC2_PUBLIC_IP`
+- `TF_VAR_KEY_NAME`  
 - `EC2_SSH_KEY`
+
+## Commit and push the repo  
+
+Go to Github to see the pipeline progress  
 
 ## Access the app
 
